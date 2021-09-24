@@ -1,3 +1,56 @@
+9.1
+class Resturant:
+    """A simple attempt to model a resturant."""
+
+    def __init__(self,resturant_name,cuisine_type):
+        self.resturant_name = resturant_name
+        self.cuisine_type = cuisine_type
+
+    def describe_resturant(self):
+        """Describe the resturant."""
+        print(f"{self.resturant_name} is a great place that serves {self.cuisine_type}!")
+
+    def open_resturant(self):
+        """open the resturant."""
+        print(f"{self.resturant_name} is now OPEN!")
+
+resturant = Resturant("Bob's Pizza", 'Italian Pizza')
+
+resturant.open_resturant()
+resturant.describe_resturant
+
+9.2
+class Resturant:
+    """A simple attempt to model a resturant."""
+
+    def __init__(self,resturant_name,cuisine_type):
+        self.resturant_name = resturant_name
+        self.cuisine_type = cuisine_type
+
+    def describe_resturant(self):
+        """Describe the resturant."""
+        print(f"{self.resturant_name} is a great place that serves {self.cuisine_type}!")
+
+    def open_resturant(self):
+        """open the resturant."""
+        print(f"{self.resturant_name} is now OPEN!")
+
+zach_resturant = Resturant("Bob's Pizza", 'Italian Pizza')
+matt_resturant = Resturant("Something Random", 'Seafood')
+ryan_resturant = Resturant("IDK", 'Sandwiches')
+
+zach_resturant.open_resturant()
+zach_resturant.describe_resturant()
+
+matt_resturant.open_resturant()
+matt_resturant.describe_resturant()
+
+ryan_resturant.open_resturant()
+ryan_resturant.describe_resturant()
+
+
+
+
 9.13
 from random import randint
 
