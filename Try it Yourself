@@ -1,0 +1,11 @@
+9.13
+from random import randint
+
+class Die:
+    """Simulate a dice roll."""
+
+    def __init__(self, sides):
+        self.sides = 6
+
+answer = randint(1,6)
+print (answer)
