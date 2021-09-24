@@ -50,7 +50,6 @@ ryan_resturant.describe_resturant()
 
 
 
-
 9.13
 from random import randint
 
@@ -62,3 +61,27 @@ class Die:
 
 answer = randint(1,6)
 print (answer)
+
+####10 sides
+from random import randint
+
+class Die:
+    """Simulate a dice roll."""
+
+    def __init__(self, sides=10):
+        self.sides = sides
+
+answer = randint(1,10)
+print(answer)
+
+#####20 sides
+from random import randint
+
+class Die:
+    """Simulate a dice roll."""
+
+    def __init__(self, sides=20):
+        self.sides = sides
+
+answer = randint(1,20)
+print(answer)
