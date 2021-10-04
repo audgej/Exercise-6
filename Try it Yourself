@@ -338,6 +338,92 @@ audrey_privileges = [
 audrey.privileges.privileges = audrey_privileges
 audrey.privileges.show_privileges()
 
+
+9.9
+class Car():
+    """represent a car."""
+
+    def __init__(self, manufacturer, model, year):
+        """Initialize attributes to describe a car."""
+        self.manufacturer = manufacturer
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        """Return a descriptive name."""
+        long_name = f"{self.year} {self.manufacturer} {self.model}"
+        return long_name.title()
+
+    def read_odometer(self):
+        """Print the car's mileage."""
+        print(f"This car has {self.odometer_reading} miles on it.")
+
+    def update_odometer(self, mileage):
+        """
+        Set the odometer reading to the given value.
+        Reject the change if it attempts to roll the odometer back.
+        """
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("Odometer's cannot go backwards!")
+
+    def increment_odometer(self, miles):
+        """Add the given amount to the odometer reading."""
+        self.odometer_reading += miles
+
+
+class Battery():
+    """A battery for an electric car."""
+
+    def __init__(self, battery_size=75):
+        """Initialize"""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Print the battery size."""
+        print(f"This car has a {self.battery_size}-kWh battery.")
+
+    def get_range(self):
+        """Print a statement about the range this battery provides."""
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+
+        message = f"This car can go about {range}"
+        message += " miles on a full charge."
+        print(message)
+
+    def upgrade_battery(self):
+        """Upgrade the battery if possible."""
+        if self.battery_size == 75:
+            self.battery_size = 100
+            print("Upgraded the battery to 100 kWh.")
+        else:
+            print("The battery is already upgraded.")
+
+
+class ElectricCar(Car):
+    """Electric car."""
+
+    def __init__(self, manufacturer, model, year):
+        """
+        Initialize normal car.
+        initialize electric car.
+        """
+        super().__init__(manufacturer, model, year)
+        self.battery = Battery()
+
+
+print("Electric car range:")
+my_tesla = ElectricCar('tesla', 'Model 3', 2021)
+my_tesla.battery.get_range()
+
+print("\nUpgraded, the range is:")
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.get_range()
 9.13
 from random import randint
 
