@@ -424,6 +424,44 @@ my_tesla.battery.get_range()
 print("\nUpgraded, the range is:")
 my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
+
+9.10
+Restaurant.py
+class Restaurant:
+    """A simple attempt to model a resturant."""
+
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.numbers_served = 0
+
+    def describe_restaurant(self):
+        """Describe the restaurant."""
+        print(f"{self.restaurant_name} is a great place that serves {self.cuisine_type}!")
+
+    def open_restaurant(self):
+        """open the restaurant."""
+        print(f"{self.restaurant_name} is now OPEN!")
+
+    def set_number_served(self, number_served):
+        """set the number of customers that have been served."""
+        self.number_served = number_served
+
+    def increment_number_served(self, additional_served):
+        """increment the number of customers served."""
+        self.number_served += additional_served
+
+restaurant = Restaurant('Bobs Pizza', 'Italian pizza')
+restaurant.describe_restaurant()
+
+NEW.py
+from restaurant import Restaurant
+
+channel_club = Restaurant('Sammys Sandwiches', 'sandwiches')
+channel_club.describe_restaurant()
+channel_club.open_restaurant()
+
+
 9.13
 from random import randint
 
