@@ -508,3 +508,142 @@ sc_lottery = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 winning_number = sc_lottery[randint(0,14)]+(sc_lottery[randint(0,14)]+(sc_lottery[randint(0,14)])+(sc_lottery[randint(0,14)])
 
 print(winning_number)
+
+10.1
+learning_python.txt
+In Python you can store a lot of information.
+In Python you can write code.
+In Python you can model real-world situations.
+
+learning_python.py
+filename = 'learning_python.txt'
+
+print("--- Reading in the entire file:")
+with open(filename) as f:
+    contents = f.read()
+print(contents)
+
+print("\n--- Looping over the lines:")
+with open(filename) as f:
+    for line in f:
+        print(line.rstrip())
+
+print("\n--- Storing the lines in a list:")
+with open(filename) as f:
+    lines = f.readlines()
+
+for line in lines:
+    print(line.rstrip())
+
+10.3
+name = input("What's your name? ")
+
+filename = 'guest.txt'
+
+with open(filename, 'w') as f:
+    f.write(name)
+    
+guest.txt
+sam
+
+10.4
+filename = 'guest_book.txt'
+
+print("Enter 'quit' when you are finished.")
+while True:
+    name = input("\nWhat's your name? ")
+    if name == 'quit':
+        break
+    else:
+        with open(filename, 'a') as f:
+            f.write(f"{name}\n")
+        print(f"Hi {name}, you've been added to the guest book.")
+        
+guess_book.txt
+sam
+harry
+john
+thomas
+
+10.11
+favorite_numbers_write.py
+import json
+
+number = input("What's your favorite number? ")
+
+with open('favorite_number.json', 'w') as f:
+    json.dump(number, f)
+    print("Thanks! I'll remember that.")
+
+favorite_number_read.py
+import json
+
+with open('favorite_number.json') as f:
+    number = json.load(f)
+
+print(f"I know your favorite number! It's {number}.")
+
+
+11.1
+city_functions.py
+"""A collection of functions for working with cities."""
+
+def city_country(city, country):
+    """Return a string like 'York, South Carolina'."""
+    return f"{city.title()}, {country.title()}"
+   
+test.cities.py
+import unittest
+
+from city_functions import city_country
+
+class CitiesTestCase(unittest.TestCase):
+    """Tests for 'city_functions.py'."""
+
+    def test_city_country(self):
+        """Does a simple city and country pair work?"""
+        santiago_chile = city_country('york', 'south carolina')
+        self.assertEqual(santiago_chile, 'York, South Carolina')
+
+if __name__ == '__main__':
+    unittest.main()
+    
+11.3
+employee.py
+class Employee():
+    """A class to represent an employee."""
+
+    def __init__(self, f_name, l_name, salary):
+        """Initialize the employee."""
+        self.first = f_name.title()
+        self.last = l_name.title()
+        self.salary = salary
+
+    def give_raise(self, amount=5000):
+        """Give the employee a raise."""
+        self.salary += amount
+
+test_employee.py
+import unittest
+
+from employee import Employee
+
+class TestEmployee(unittest.TestCase):
+    """Tests for the module employee."""
+
+    def setUp(self):
+        """Make an employee to use in tests."""
+        self.eric = Employee('eric', 'matthes', 65_000)
+
+    def test_give_default_raise(self):
+        """Test that a default raise works correctly."""
+        self.eric.give_raise()
+        self.assertEqual(self.eric.salary, 70000)
+
+    def test_give_custom_raise(self):
+        """Test that a custom raise works correctly."""
+        self.eric.give_raise(10000)
+        self.assertEqual(self.eric.salary, 75000)
+
+if __name__ == '__main__':
+    unittest.main()
